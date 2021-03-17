@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DangNhap">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgdn"></ImageView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="51dp"></View>
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <TextView
+        android:id="@+id/textSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Đăng nhập"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="Email"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/viewEmailDivider"
+        app:layout_constraintStart_toEndOf="@id/imageEmail"
+        app:layout_constraintTop_toBottomOf="@id/textSignIn"
+        tools:ignore="MissingConstraints"></TextView>
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="email@gmail.com"
+        android:inputType="textEmailAddress"
+        android:minHeight="35dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@id/viewEmailDivider"
+        app:layout_constraintStart_toEndOf="@id/imageEmail"
+        app:layout_constraintTop_toBottomOf="@id/textEmail"
+        tools:ignore="Autofill" />
+
+    <View
+        android:id="@+id/viewEmailDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/colorTextHint"
+        app:layout_constraintTop_toBottomOf="@id/inputEmail"
+        tools:ignore="MissingConstraints">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/imageEmail"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/email"
+        android:tint="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@id/viewEmailDivider"
+        app:layout_constraintStart_toStartOf="@id/viewEmailDivider"
+        app:layout_constraintTop_toTopOf="@+id/textEmail"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="mật khẩu"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/viewEmailDivider"
+        app:layout_constraintStart_toEndOf="@id/imageEmail"
+        app:layout_constraintTop_toBottomOf="@id/viewEmailDivider"
+        tools:ignore="MissingConstraints"></TextView>
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="*******"
+        android:inputType="textPassword"
+        android:minHeight="35dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@id/viewEmailDivider"
+        app:layout_constraintStart_toEndOf="@id/imageEmail"
+        app:layout_constraintTop_toBottomOf="@id/textPassword"
+        tools:ignore="Autofill" />
+
+    <ImageView
+        android:id="@+id/imagePassword"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/password"
+        android:tint="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@id/viewPasswordlDivider"
+        app:layout_constraintStart_toStartOf="@id/viewEmailDivider"
+        app:layout_constraintTop_toTopOf="@+id/textPassword"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <View
+        android:id="@+id/viewPasswordlDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/colorTextHint"
+        app:layout_constraintTop_toBottomOf="@id/inputPassword"
+        tools:ignore="MissingConstraints">
+
+    </View>
+
+    <Button
+        android:id="@+id/buttonSingIn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/botton_background"
+        android:text="Đăng Nhập"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/viewPasswordlDivider"
+
+
+        ></Button>
+
+    <TextView
+        android:id="@+id/textForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Quên mật khẩu"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSingIn"></TextView>
+
+    <LinearLayout
+        android:id="@+id/layoutSocial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textForgotPassword"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/facebook"
+            android:tint="@color/colorWhite">
+
+        </ImageView>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/google"
+            android:tint="@color/colorWhite"></ImageView>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Chưa có tài khoản? Tạo tài khoản"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/layoutSocial"></TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

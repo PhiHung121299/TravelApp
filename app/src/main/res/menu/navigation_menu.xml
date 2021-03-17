@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuExplore"
+        android:icon="@drawable/ic_explore"
+        android:title="Khám phá">
+
+    </item>
+    <item
+        android:id="@+id/menuSearch"
+        android:icon="@drawable/ic_search"
+        android:title="Tìm kiếm"></item>
+    <item
+        android:id="@+id/menuFavorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="Yêu thích">
+
+    </item>
+</menu>
