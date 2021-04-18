@@ -9,9 +9,11 @@ import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.rajendra.vacationtourapp.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TraverlLocationAdapter extends RecyclerView.Adapter<TraverlLocationAdapter.TraverlLocationViewHolder> {

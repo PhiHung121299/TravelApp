@@ -46,13 +46,14 @@ public class RecentsAdapter extends RecyclerView.Adapter<RecentsAdapter.RecentsV
 //        holder.price.setText(recentsDataList.get(position).getPrice());
 //        holder.placeImage.setImageResource(recentsDataList.get(position).getImageUrl());
         holder.setLocationData(recentsDataList.get(position));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, DetailsActivity.class);
-                context.startActivity(i);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(context, DetailsActivity.class);
+//
+//                context.startActivity(i);
+//            }
+//        });
 
     }
 
@@ -63,24 +64,25 @@ public class RecentsAdapter extends RecyclerView.Adapter<RecentsAdapter.RecentsV
 
     public static final class RecentsViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView placeImage;
-        TextView placeName, countryName, rating;
-
+//        ImageView placeImage;
+//        TextView placeName, countryName, rating;
+        ImageView imageUrl;
+        TextView title, location, starRating;
         public RecentsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            placeImage = itemView.findViewById(R.id.place_image);
-            placeName = itemView.findViewById(R.id.place_name);
-            countryName = itemView.findViewById(R.id.country_name);
-            rating =  itemView.findViewById(R.id.textStarRating);
+            imageUrl = itemView.findViewById(R.id.url_image);
+            title = itemView.findViewById(R.id.title);
+            location = itemView.findViewById(R.id.location);
+            starRating = itemView.findViewById(R.id.starRating);
 
         }
 
         void setLocationData(RecentsData travelLocation) {
-            Picasso.get().load(travelLocation.getImageUrl()).into(placeImage);
-            placeName.setText(travelLocation.getPlaceName());
-            countryName.setText(travelLocation.getCountryName());
-           rating.setText(String.valueOf(travelLocation.starRating));
+            Picasso.get().load(travelLocation.getImageUrl()).into(imageUrl);
+            title.setText(travelLocation.getTitle());
+            location.setText(travelLocation.getLocation());
+            starRating.setText(String.valueOf(travelLocation.starRating));
         }
     }
 }

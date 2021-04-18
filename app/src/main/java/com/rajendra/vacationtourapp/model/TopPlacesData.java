@@ -1,43 +1,64 @@
 package com.rajendra.vacationtourapp.model;
 
-public class TopPlacesData {
+import java.io.Serializable;
 
-    String placeName;
-    String countryName;
+public class TopPlacesData implements Serializable {
 
-
+    //    public TopPlacesData(String title, String location, String imageUrl, Float starRating, String TongQuan) {
+//        this.title = title;
+//        this.location = location;
+//        this.imageUrl = imageUrl;
+//        this.starRating = starRating;
+//        this.TongQuan = TongQuan;
+//    }
+    public String title, location, imageUrl;
     public Float starRating;
-    Integer imageUrl;
+    public String tongQuan;
+    public String getTongQuan() {
+        return tongQuan;
+    }
 
-    public Integer getImageUrl() {
+    public void setTongQuan(String tongQuan) {
+        this.tongQuan = tongQuan;
+    }
+
+
+
+
+    public TopPlacesData(String title, String location, String imageUrl, Float starRating, String tongQuan) {
+        this.title = title;
+        this.location = location;
+        this.imageUrl = imageUrl;
+        this.starRating = starRating;
+        this.tongQuan = tongQuan;
+    }
+
+
+
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(Integer imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public TopPlacesData(String placeName, String countryName, Float starRating, Integer imageUrl) {
-        this.placeName = placeName;
-        this.countryName = countryName;
-        this.starRating = starRating;
-        this.imageUrl = imageUrl;
-    }
-
-    public String getPlaceName() {
-        return placeName;
-    }
-
-    public void setPlaceName(String placeName) {
-        this.placeName = placeName;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
     }
 
     public Float getStarRating() {
@@ -47,4 +68,10 @@ public class TopPlacesData {
     public void setStarRating(Float starRating) {
         this.starRating = starRating;
     }
+
+
+    public TopPlacesData() {
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp.HomePage;
+ package com.rajendra.vacationtourapp.HomePage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,8 +48,6 @@ public class HomePage extends AppCompatActivity {
                     case R.id.menuFavorite:
                         fragment = new Fragment3();
                         break;
-
-
                 }
 
                 if (fragment != null) {
