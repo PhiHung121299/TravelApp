@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "492081348151",
+    "project_id": "travelapp-3003b",
+    "storage_bucket": "travelapp-3003b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492081348151:android:272f1118b7bcdc86c189b2",
+        "android_client_info": {
+          "package_name": "com.rajendra.vacationtourapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492081348151-3rrdua1o7qvv0q44aeqqm2oho1ph2nro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg5Jx-D3u3zpeLpYggwEfxm46pqdCynFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492081348151-3rrdua1o7qvv0q44aeqqm2oho1ph2nro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
