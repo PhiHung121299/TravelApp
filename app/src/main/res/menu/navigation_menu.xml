@@ -12,8 +12,8 @@
         android:title="Tìm kiếm"></item>
     <item
         android:id="@+id/menuFavorite"
-        android:icon="@drawable/ic_favorite"
-        android:title="Yêu thích">
+        android:icon="@drawable/ic_baseline_location_city_24"
+        android:title="Địa điểm">
 
     </item>
 </menu>

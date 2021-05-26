@@ -51,7 +51,7 @@ public class TraverlLocationAdapter extends RecyclerView.Adapter<TraverlLocation
 
         public TraverlLocationViewHolder(@NonNull View itemView) {
             super(itemView);
-            kbvLocation = itemView.findViewById(R.id.kbvLocation);
+            kbvLocation = itemView.findViewById(R.id.textUrlImg);
             textTitle = itemView.findViewById(R.id.textTitle);
             textLocation = itemView.findViewById(R.id.textLocation);
             textStarRating = itemView.findViewById(R.id.textStarRating);

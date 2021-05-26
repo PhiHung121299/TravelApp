@@ -12,19 +12,23 @@ import androidx.viewpager2.widget.ViewPager2;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.rajendra.vacationtourapp.R;
+import com.rajendra.vacationtourapp.adapter.TopDiaDiemAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends AppCompatActivity {
 
-    private ChipNavigationBar chipNavigationBar;
+    static  public ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
 
     @Override
@@ -41,6 +45,7 @@ public class HomePage extends AppCompatActivity {
                 switch (i) {
                     case R.id.menuExplore:
                         fragment = new Fragment1();
+
                         break;
                     case R.id.menuSearch:
                         fragment = new Fragment2();
@@ -72,13 +77,6 @@ public class HomePage extends AppCompatActivity {
         travelLocations.add(travelLocationMountainView);
 
 
-//        locationsViewPager.setAdapter(new TraverlLocationAdapter(travelLocations));
-//        locationsViewPager.setClipToPadding(false);
-//        locationsViewPager.setClipChildren(false);
-//        locationsViewPager.setOffscreenPageLimit(3);
-//        locationsViewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-
-
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
         compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
@@ -89,10 +87,16 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-     //   locationsViewPager.setPageTransformer(compositePageTransformer);
 
 
     }
 
+public static void setItemFragmen(){
+    chipNavigationBar.setItemSelected(R.id.menuFavorite, true);
+}
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

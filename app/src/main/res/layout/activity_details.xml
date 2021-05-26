@@ -245,16 +245,25 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
             <fragment
                 android:id="@+id/mapView"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
                 android:layout_height="120dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="@+id/bando"
-                app:layout_constraintTop_toBottomOf="@+id/bando"></fragment>
+                app:layout_constraintTop_toBottomOf="@+id/bando">
 
+                <View
+                    android:id="@+id/onclick_View"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00000000">
 
+                </View>
+            </fragment>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

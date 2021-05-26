@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="280dp">
 
         <com.flaviofaria.kenburnsview.KenBurnsView
-            android:id="@+id/kbvLocation"
+            android:id="@+id/textUrlImg"
             android:layout_width="match_parent"
 
             android:layout_height="match_parent"
@@ -36,6 +36,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:contentDescription="@string/app_name"

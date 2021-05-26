@@ -8,30 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajendra.vacationtourapp.DetailsActivity;
-import com.rajendra.vacationtourapp.HomePage.Fragment1;
-import com.rajendra.vacationtourapp.HomePage.TravelLocation;
 import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.model.RecentsData;
-import com.rajendra.vacationtourapp.model.TopPlacesData;
+import com.rajendra.vacationtourapp.model.DiaDiem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TopPlacesAdapter extends RecyclerView.Adapter<TopPlacesAdapter.TopPlacesViewHolder> {
+public class TopDiaDiemAdapter extends RecyclerView.Adapter<TopDiaDiemAdapter.TopPlacesViewHolder> {
     private static final String TAG = "MyActivity";
     Context context;
-    ArrayList<TopPlacesData> topPlacesDataList;
+    ArrayList<DiaDiem> diaDiemList;
 
-    public TopPlacesAdapter(Context context, ArrayList<TopPlacesData> topPlacesDataList) {
+    public TopDiaDiemAdapter(Context context, ArrayList<DiaDiem> diaDiemList) {
         this.context = context;
-        this.topPlacesDataList = topPlacesDataList;
+        this.diaDiemList = diaDiemList;
     }
 
     @NonNull
@@ -47,19 +42,21 @@ public class TopPlacesAdapter extends RecyclerView.Adapter<TopPlacesAdapter.TopP
     @Override
     public void onBindViewHolder(@NonNull final TopPlacesViewHolder holder, final int position) {
 
-        holder.setLocationData(topPlacesDataList.get(position));
+        holder.setLocationData(diaDiemList.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, DetailsActivity.class);
-                i.putExtra("thongtinchitiet1", topPlacesDataList.get(position).getTitle());
-                i.putExtra("thongtinchitiet2", topPlacesDataList.get(position).getLocation());
-                i.putExtra("thongtinchitiet3", topPlacesDataList.get(position).getImageUrl());
-                i.putExtra("thongtinchitiet4", topPlacesDataList.get(position).getStarRating().toString());
-                i.putExtra("tongquan", topPlacesDataList.get(position).getTongQuan());
+                i.putExtra("dsdd", diaDiemList.get(position));
+//                i.putExtra("thongtinchitiet1", topPlacesDataList.get(position).getTitle());
+//                i.putExtra("thongtinchitiet2", topPlacesDataList.get(position).getLocation());
+//                i.putExtra("thongtinchitiet3", topPlacesDataList.get(position).getImageUrl());
+//                i.putExtra("thongtinchitiet4", topPlacesDataList.get(position).getStarRating().toString());
+//                i.putExtra("tongquan", topPlacesDataList.get(position).getTongQuan());
+//                i.putExtra("vitri", topPlacesDataList.get(position).getVitri());
                 context.startActivity(i);
                 //    Toast.makeText(context, listsp.toString(), Toast.LENGTH_SHORT).show();
-                Log.i(TAG, "------------------------------------------------------------------" +topPlacesDataList.get(position).getStarRating());
+                Log.i(TAG, "------------------------------------------------------------------" + diaDiemList.get(position).getStarRating());
             }
         });
 
@@ -67,7 +64,7 @@ public class TopPlacesAdapter extends RecyclerView.Adapter<TopPlacesAdapter.TopP
 
     @Override
     public int getItemCount() {
-        return topPlacesDataList.size();
+        return diaDiemList.size();
     }
 
     public static final class TopPlacesViewHolder extends RecyclerView.ViewHolder {
@@ -80,13 +77,13 @@ public class TopPlacesAdapter extends RecyclerView.Adapter<TopPlacesAdapter.TopP
         public TopPlacesViewHolder(@NonNull View itemView) {
             super(itemView);
             imageUrl = itemView.findViewById(R.id.url_image);
-            title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.tv_title);
             location = itemView.findViewById(R.id.location);
             starRating = itemView.findViewById(R.id.starRating);
 
         }
 
-        void setLocationData(TopPlacesData travelLocation) {
+        void setLocationData(DiaDiem travelLocation) {
             Picasso.get().load(travelLocation.getImageUrl()).into(imageUrl);
             title.setText(travelLocation.getTitle());
             location.setText(travelLocation.getLocation());

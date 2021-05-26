@@ -7,6 +7,8 @@
     android:background="#00FFFFFF"
     tools:context=".HomePage.Fragment1">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -102,6 +104,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="Xem tất cả"
+
             android:textColor="#219E92"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"

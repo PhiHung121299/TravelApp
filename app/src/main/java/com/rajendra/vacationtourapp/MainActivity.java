@@ -7,19 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.rajendra.vacationtourapp.adapter.RecentsAdapter;
-import com.rajendra.vacationtourapp.adapter.TopPlacesAdapter;
+import com.rajendra.vacationtourapp.adapter.TopDiaDiemAdapter;
 import com.rajendra.vacationtourapp.model.RecentsData;
-import com.rajendra.vacationtourapp.model.TopPlacesData;
+import com.rajendra.vacationtourapp.model.DiaDiem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.RecursiveAction;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recentRecycler, topPlacesRecycler;
     RecentsAdapter recentsAdapter;
-    TopPlacesAdapter topPlacesAdapter;
+    TopDiaDiemAdapter topDiaDiemAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         setRecentRecycler(recentsDataList);
 
-        ArrayList<TopPlacesData> topPlacesDataList = new ArrayList<>();
-        setTopPlacesRecycler(topPlacesDataList);
+        ArrayList<DiaDiem> diaDiemList = new ArrayList<>();
+        setTopPlacesRecycler(diaDiemList);
     }
     private void setRecentRecycler(List<RecentsData> recentsDataList) {
         recentRecycler = findViewById(R.id.recent_recycler);
@@ -42,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         recentRecycler.setAdapter(recentsAdapter);
 
     }
-    private void setTopPlacesRecycler(ArrayList<TopPlacesData> topPlacesDataList) {
+    private void setTopPlacesRecycler(ArrayList<DiaDiem> diaDiemList) {
         topPlacesRecycler = findViewById(R.id.top_places_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         topPlacesRecycler.setLayoutManager(layoutManager);
-        topPlacesAdapter = new TopPlacesAdapter(this, topPlacesDataList);
-        topPlacesRecycler.setAdapter(topPlacesAdapter);
+        topDiaDiemAdapter = new TopDiaDiemAdapter(this, diaDiemList);
+        topPlacesRecycler.setAdapter(topDiaDiemAdapter);
     }
 }
