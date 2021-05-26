@@ -61,20 +61,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
       //  ViewPager2 locationsViewPager = findViewById(R.id.locationViewPager);
-        List<TravelLocation> travelLocations = new ArrayList<>();
-        TravelLocation travelLocationEiffelTower = new TravelLocation();
-        travelLocationEiffelTower.imageUrl = "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.0-9/58701294_2573804219512789_138328767616516096_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_ohc=xheaUq9OPs8AX_ASg6t&_nc_ht=scontent.fhan3-1.fna&oh=8ef19a01242899ea338376d9fb704e88&oe=606E4451";
-        travelLocationEiffelTower.title = "Lâm Bình";
-        travelLocationEiffelTower.location = "Khuổi Nhi";
-        travelLocationEiffelTower.starRating = 4.8f;
-        travelLocations.add(travelLocationEiffelTower);
-
-        TravelLocation travelLocationMountainView = new TravelLocation();
-        travelLocationMountainView.imageUrl = "https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/128617160_776388316281778_1641442538226278373_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=AFbmKau_XGwAX9HitBi&_nc_ht=scontent.fhan4-1.fna&oh=8ea3f9578b14d41d727929822f6c51fb&oe=606C96D0";
-        travelLocationMountainView.title = "Homestay Nậm Đíp";
-        travelLocationMountainView.location = "Lăng Can, Lâm Bình, Tuyên Quang, Việt Nam";
-        travelLocationMountainView.starRating = 4.5f;
-        travelLocations.add(travelLocationMountainView);
 
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();

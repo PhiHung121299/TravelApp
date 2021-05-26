@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+import com.rajendra.vacationtourapp.CnPhu.FullTongQuan;
 import com.rajendra.vacationtourapp.DangNhap;
+import com.rajendra.vacationtourapp.DetailsActivity;
 import com.rajendra.vacationtourapp.R;
 import com.rajendra.vacationtourapp.adapter.RecentsAdapter;
 import com.rajendra.vacationtourapp.adapter.TopDiaDiemAdapter;
@@ -42,6 +45,7 @@ public class Fragment1 extends Fragment {
     ArrayList<DiaDiem> dsData;
     TextView TextAllnoibat;
     EditText editSeach;
+    ImageView imageViewDangNhap;
     public ChipNavigationBar chipNavigationBar;
 
     @Override
@@ -54,6 +58,8 @@ public class Fragment1 extends Fragment {
         editSeach = view.findViewById(R.id.editSeach);
         // chipNavigationBar = view.findViewById(R.id.bottomBar);
         recentRecycler = view.findViewById(R.id.locationAnUong);
+        imageViewDangNhap = view.findViewById(R.id.btDangNhap);
+
         topPlacesRecycler = view.findViewById(R.id.TopDiaDiem);
         TextAllnoibat = view.findViewById(R.id.textAllnoibat);
         topPlacesRecycler.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
@@ -79,8 +85,15 @@ public class Fragment1 extends Fragment {
         TextAllnoibat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              getParentFragmentManager().beginTransaction().replace(R.id.container, new Fragment3()).addToBackStack(null).commit();
-              //  HomePage.setItemFragmen();
+                getParentFragmentManager().beginTransaction().replace(R.id.container, new Fragment3()).addToBackStack(null).commit();
+                //  HomePage.setItemFragmen();
+            }
+        });
+        imageViewDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DangNhap.class);
+                startActivity(intent);
             }
         });
         // Tìm kiếm
