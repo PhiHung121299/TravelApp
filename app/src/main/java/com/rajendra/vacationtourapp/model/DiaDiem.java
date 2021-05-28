@@ -32,9 +32,6 @@ public class DiaDiem implements Serializable {
         this.tongQuan = tongQuan;
     }
 
-
-
-
     public DiaDiem(String title, String location, String imageUrl, Float starRating, String tongQuan, String vitri) {
         this.title = title;
         this.location = location;
@@ -43,9 +40,6 @@ public class DiaDiem implements Serializable {
         this.tongQuan = tongQuan;
         this.vitri=vitri;
     }
-
-
-
 
 
     public String getTitle() {

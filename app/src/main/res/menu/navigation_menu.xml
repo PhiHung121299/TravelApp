@@ -14,6 +14,12 @@
 
     </item>
     <item
+        android:id="@+id/menuNhaNghi"
+        android:icon="@drawable/ic_baseline_location_city_24"
+        android:title="NhaNghi">
+
+    </item>
+    <item
         android:id="@+id/menuUser"
         android:icon="@drawable/ic_use"
         android:title="cá nhân">

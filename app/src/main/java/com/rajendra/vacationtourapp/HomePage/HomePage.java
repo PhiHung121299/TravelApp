@@ -57,10 +57,13 @@ public class HomePage extends AppCompatActivity {
                         setFragment(fragment1);
 
                         break;
-
+                    case R.id.menuNhaNghi:
+                        setFragment(fragment2);
+                        break;
                     case R.id.menuFavorite:
                         setFragment(fragment3);
                         break;
+
                     case R.id.menuUser:
                         setFragment(fragment4);
                         break;

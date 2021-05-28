@@ -38,7 +38,6 @@ public class Fragment3 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_3, container, false);
         gv_diadiem = (GridView) view.findViewById(R.id.gv_diadiem);
-
         listdd = new ArrayList<DiaDiem>();
         myData = FirebaseDatabase.getInstance().getReference().child("TravelLocation");
         myData.addValueEventListener(new ValueEventListener() {
