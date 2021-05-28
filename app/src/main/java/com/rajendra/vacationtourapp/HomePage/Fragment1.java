@@ -28,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.rajendra.vacationtourapp.CnPhu.FullTongQuan;
+import com.rajendra.vacationtourapp.CnPhu.TimKiem;
 import com.rajendra.vacationtourapp.DangNhap;
 import com.rajendra.vacationtourapp.DetailsActivity;
 import com.rajendra.vacationtourapp.R;
@@ -44,7 +45,7 @@ public class Fragment1 extends Fragment {
     DatabaseReference myData;
     ArrayList<DiaDiem> dsData;
     TextView TextAllnoibat;
-    EditText editSeach;
+    TextView editSeach;
     ImageView imageViewDangNhap;
     public ChipNavigationBar chipNavigationBar;
 
@@ -85,8 +86,9 @@ public class Fragment1 extends Fragment {
         TextAllnoibat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //  chipNavigationBar.setItemSelected(R.id.menuFavorite, true);
                 getParentFragmentManager().beginTransaction().replace(R.id.container, new Fragment3()).addToBackStack(null).commit();
-                //  HomePage.setItemFragmen();
+                //   HomePage.setFragmen();
             }
         });
         imageViewDangNhap.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +96,14 @@ public class Fragment1 extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), DangNhap.class);
                 startActivity(intent);
+            }
+        });
+        editSeach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), TimKiem.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
             }
         });
         // Tìm kiếm

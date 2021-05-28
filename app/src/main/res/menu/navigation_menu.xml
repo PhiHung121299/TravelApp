@@ -6,14 +6,17 @@
         android:title="Khám phá">
 
     </item>
-    <item
-        android:id="@+id/menuSearch"
-        android:icon="@drawable/ic_search"
-        android:title="Tìm kiếm"></item>
+
     <item
         android:id="@+id/menuFavorite"
         android:icon="@drawable/ic_baseline_location_city_24"
         android:title="Địa điểm">
+
+    </item>
+    <item
+        android:id="@+id/menuUser"
+        android:icon="@drawable/ic_use"
+        android:title="cá nhân">
 
     </item>
 </menu>

@@ -8,7 +8,6 @@
     tools:context=".HomePage.Fragment1">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -63,7 +62,7 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/cardProfilePicture" />
 
-        <EditText
+        <TextView
             android:id="@+id/editSeach"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -72,11 +71,12 @@
             android:drawableLeft="@drawable/ic_search_black_24dp"
             android:drawablePadding="16dp"
             android:ems="10"
-
+            android:gravity="start|center"
             android:hint="Tìm kiếm địa điểm đến"
             android:inputType="textPersonName"
             android:paddingStart="16dp"
-            android:textColor="#62878F"
+            android:textColor="#051E23"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="@+id/textWhereAreWe"
             app:layout_constraintStart_toStartOf="@+id/textWhereAreWe"
             app:layout_constraintTop_toBottomOf="@+id/textWhereAreWe" />

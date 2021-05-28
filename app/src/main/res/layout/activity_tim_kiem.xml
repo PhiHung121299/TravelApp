@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CnPhu.TimKiem">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/search_bg"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editSeach"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="8"
+                android:background="@drawable/bg_white"
+                android:drawablePadding="16dp"
+                android:ems="10"
+                android:hint="Tìm kiếm địa điểm đến"
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                android:textColor="#62878F"
+                app:layout_constraintEnd_toEndOf="@+id/textWhereAreWe"
+                app:layout_constraintStart_toStartOf="@+id/textWhereAreWe"
+                app:layout_constraintTop_toBottomOf="@+id/textWhereAreWe"
+                tools:ignore="Suspicious0dp" />
+
+            <ImageView
+                android:id="@+id/btseach"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_search_black_24dp"></ImageView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Cancel"
+            android:textColor="@color/mauxanh"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

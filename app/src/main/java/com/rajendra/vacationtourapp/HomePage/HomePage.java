@@ -1,4 +1,4 @@
- package com.rajendra.vacationtourapp.HomePage;
+package com.rajendra.vacationtourapp.HomePage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,8 +29,13 @@ import java.util.List;
 
 public class HomePage extends AppCompatActivity {
 
-    static  public ChipNavigationBar chipNavigationBar;
+    static public ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
+    private Fragment1 fragment1;
+    private Fragment2 fragment2;
+    private Fragment3 fragment3;
+    private Fragment4 fragment4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,30 +43,32 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         chipNavigationBar = findViewById(R.id.bottomBar);
         chipNavigationBar.setItemSelected(R.id.menuExplore, true);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new Fragment1()).commit();
 
+        fragment1 = new Fragment1();
+        fragment2 = new Fragment2();
+        fragment3 = new Fragment3();
+        fragment4 = new Fragment4();
+        setFragment(fragment1);
         chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
                 switch (i) {
                     case R.id.menuExplore:
-                        fragment = new Fragment1();
+                        setFragment(fragment1);
 
                         break;
-                    case R.id.menuSearch:
-                        fragment = new Fragment2();
-                        break;
+
                     case R.id.menuFavorite:
-                        fragment = new Fragment3();
+                        setFragment(fragment3);
+                        break;
+                    case R.id.menuUser:
+                        setFragment(fragment4);
                         break;
                 }
 
-                if (fragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-                }
             }
         });
-      //  ViewPager2 locationsViewPager = findViewById(R.id.locationViewPager);
+        //  ViewPager2 locationsViewPager = findViewById(R.id.locationViewPager);
 
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
@@ -77,12 +85,9 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-public static void setItemFragmen(){
-    chipNavigationBar.setItemSelected(R.id.menuFavorite, true);
-}
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void setFragment(Fragment fragmen) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragmen);
+        fragmentTransaction.commit();
     }
 }
