@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/menuFavorite"
-        android:icon="@drawable/ic_baseline_location_city_24"
+        android:icon="@drawable/ic_diadiem"
         android:title="Địa điểm">
 
     </item>

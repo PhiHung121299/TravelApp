@@ -25,11 +25,12 @@ import com.rajendra.vacationtourapp.adapter.AllDiaDiemAdapter;
 import com.rajendra.vacationtourapp.model.DiaDiem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Fragment3 extends Fragment {
     GridView gv_diadiem;
     ArrayList<DiaDiem> listdd;
-
+    private static final String TAG = "ok";
     AllDiaDiemAdapter adapter;
     DatabaseReference myData;
 
@@ -65,16 +66,18 @@ public class Fragment3 extends Fragment {
                 // intent.putExtra("id", listsp.get(i).getMaSP());
                 intent.putExtra("dsdd", listdd.get(i));
                 startActivity(intent);
-                 Toast.makeText(getActivity(), "" + listdd.get(i).getVitri(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "" + listdd.get(i).getVitri(), Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
+
     @Override
     public void onResume() {
         Log.e("DEBUG", "onResume of LoginFragment");
         super.onResume();
     }
+
 
 }
