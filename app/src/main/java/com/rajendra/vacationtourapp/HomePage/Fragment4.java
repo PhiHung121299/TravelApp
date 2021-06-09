@@ -11,12 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.rajendra.vacationtourapp.DangNhap;
 import com.rajendra.vacationtourapp.R;
+import com.rajendra.vacationtourapp.model.DiaDiem;
 import com.rajendra.vacationtourapp.model.Nguoidung;
+import com.rajendra.vacationtourapp.preferences;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +32,8 @@ public class Fragment4 extends Fragment {
     Button dangnhap, dangxuat, trangquanly;
     public static List<Nguoidung> thongtin = new ArrayList<>();
     private static SharedPreferences luutaikhoan;
-
+    ImageView img_url;
+String id;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,7 +48,7 @@ public class Fragment4 extends Fragment {
         trangquanly = (Button) view.findViewById(R.id.dentrangquanly);
         dangxuat = (Button) view.findViewById(R.id.bt_dangxuat);
 
-
+        img_url = (ImageView) view.findViewById(R.id.image_avata);
         dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +62,7 @@ public class Fragment4 extends Fragment {
             @Override
             public void onClick(View v) {
                 logout();
+
                 Intent intent = new Intent(getActivity(), DangNhap.class);
                 startActivity(intent);
             }
@@ -73,13 +79,15 @@ public class Fragment4 extends Fragment {
     }
 
     private void checkdata() {
-        String TenTk = luutaikhoan.getString("tk", "");
+        Nguoidung ds = (Nguoidung) getActivity().getIntent().getSerializableExtra("thongtin");
+        String TenTk = ds.getHoTen()+"";
         if (!TextUtils.isEmpty(TenTk)) {
             dangnhap.setVisibility(View.GONE);
             dangxuat.setVisibility(View.VISIBLE);
-            tv_tentaikhoan.setText(luutaikhoan.getString("ten", ""));
-            int sdt1 = luutaikhoan.getInt("sdt", 0);
-            tv_sdt.setText(sdt1 + "");
+            tv_tentaikhoan.setText(ds.getHoTen() + "");
+            tv_ngaysinh.setText(ds.getNgaySinh() + "");
+            Picasso.get().load(ds.getAnhDaiDien()).into(img_url);
+
         } else {
             thongtin = new ArrayList<>();
             dangnhap.setVisibility(View.VISIBLE);
@@ -101,7 +109,7 @@ public class Fragment4 extends Fragment {
         } else {
             dangnhap.setVisibility(View.INVISIBLE);
             dangxuat.setVisibility(View.VISIBLE);
-            if (thongtin.get(0).getLoaitk().equals("quản trị")) {
+            if (thongtin.get(0).getLoai().equals("admin")) {
                 trangquanly.setVisibility(View.VISIBLE);
                 trangquanly.setOnClickListener(new View.OnClickListener() {
                     @Override

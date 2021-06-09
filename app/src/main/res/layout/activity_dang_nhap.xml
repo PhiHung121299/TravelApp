@@ -165,6 +165,18 @@
 
     </View>
 
+    <Switch
+        android:id="@+id/active"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="end"
+        android:text="Remeber me"
+        app:layout_constraintTop_toBottomOf="@id/viewPasswordlDivider"
+      />
+
     <Button
         android:id="@+id/buttonSingIn"
         android:layout_width="match_parent"
@@ -177,7 +189,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/viewPasswordlDivider"
+        app:layout_constraintTop_toBottomOf="@id/active"
 
 
         ></Button>
@@ -220,6 +232,7 @@
             android:src="@drawable/google"
             android:tint="@color/colorWhite"></ImageView>
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -4,121 +4,68 @@ package com.rajendra.vacationtourapp.model;
 import java.io.Serializable;
 
 public class Nguoidung implements Serializable {
-
-
-    String tentaikhoan, matkhau, hoten, ngaysinh, diachi, gmail, sdt, loaitk, id;
-
-    public Nguoidung(String id_nguoidung, String tentaikhoan, String matkhau, String hoten, String ngaysinh, String gmail, String sdt, String diachi, String loaitk) {
-        this.id = id_nguoidung;
-        this.tentaikhoan = tentaikhoan;
-        this.matkhau = matkhau;
-        this.hoten = hoten;
-        this.ngaysinh = ngaysinh;
-        this.diachi = diachi;
-        this.gmail = gmail;
-        this.sdt = sdt;
-        this.loaitk = loaitk;
+    public Nguoidung() {
     }
 
+    String anhDaiDien, hoTen, loai, matKhau, ngaySinh, tenTaiKhoan;
 
-    public Nguoidung(String tentaikhoan, String hoten, String ngaysinh, String gmail, String sdt, String diachi, String loaitk) {
+    //   String tentaikhoan, matkhau, hoten, ngaysinh, diachi, gmail, sdt, loaitk, id;
 
-        this.tentaikhoan = tentaikhoan;
-        this.hoten = hoten;
-        this.ngaysinh = ngaysinh;
-        this.diachi = diachi;
-        this.gmail = gmail;
-        this.sdt = sdt;
-        this.loaitk = loaitk;
+    public Nguoidung(String anhDaiDien, String hoTen, String loai, String matKhau, String ngaySinh, String tenTaiKhoan) {
+        this.anhDaiDien = anhDaiDien;
+        this.hoTen = hoTen;
+        this.loai = loai;
+        this.matKhau = matKhau;
+        this.ngaySinh = ngaySinh;
+        this.tenTaiKhoan = tenTaiKhoan;
     }
 
-    public Nguoidung(String tentaikhoan, String matkhau, String hoten, String ngaysinh, String gmail, String diachi, String sdt, String loaitk) {
-
-        this.tentaikhoan = tentaikhoan;
-        this.matkhau = matkhau;
-        this.hoten = hoten;
-        this.ngaysinh = ngaysinh;
-        this.diachi = diachi;
-        this.gmail = gmail;
-        this.sdt = sdt;
-        this.loaitk = loaitk;
+    public String getAnhDaiDien() {
+        return anhDaiDien;
     }
 
-    public String getLoaitk() {
-        return loaitk;
+    public void setAnhDaiDien(String anhDaiDien) {
+        this.anhDaiDien = anhDaiDien;
     }
 
-    public void setLoaitk(String loaitk) {
-        this.loaitk = loaitk;
+    public String getHoTen() {
+        return hoTen;
     }
 
-    public String getTentaikhoan() {
-        return tentaikhoan;
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
     }
 
-    public void setTentaikhoan(String tentaikhoan) {
-        this.tentaikhoan = tentaikhoan;
+    public String getLoai() {
+        return loai;
     }
 
-    public String getMatkhau() {
-        return matkhau;
+    public void setLoai(String loai) {
+        this.loai = loai;
     }
 
-    public void setMatkhau(String matkhau) {
-        this.matkhau = matkhau;
+    public String getMatKhau() {
+        return matKhau;
     }
 
-    public String getHoten() {
-        return hoten;
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 
-    public void setHoten(String hoten) {
-        this.hoten = hoten;
+    public String getNgaySinh() {
+        return ngaySinh;
     }
 
-    public String getNgaysinh() {
-        return ngaysinh;
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh = ngaySinh;
     }
 
-    public void setNgaysinh(String ngaysinh) {
-        this.ngaysinh = ngaysinh;
+    public String getTenTaiKhoan() {
+        return tenTaiKhoan;
     }
 
-    public String getDiachi() {
-        return diachi;
-    }
-
-    public void setDiachi(String diachi) {
-        this.diachi = diachi;
-    }
-
-    public String getGmail() {
-        return gmail;
-    }
-
-    public void setGmail(String gmail) {
-        this.gmail = gmail;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    @Override
-    public String toString() {
-        return "Nguoidung{" +
-                ", tentaikhoan='" + tentaikhoan + '\'' +
-                ", matkhau='" + matkhau + '\'' +
-                ", hoten='" + hoten + '\'' +
-                ", ngaysinh='" + ngaysinh + '\'' +
-                ", diachi='" + diachi + '\'' +
-                ", gmail='" + gmail + '\'' +
-                ", sdt='" + sdt + '\'' +
-                '}';
+    public void setTenTaiKhoan(String tenTaiKhoan) {
+        this.tenTaiKhoan = tenTaiKhoan;
     }
 
 

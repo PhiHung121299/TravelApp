@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CnPhu.TimKiem"></activity>
+        <activity android:name=".AdminPage" />
+        <activity android:name=".ChitietNhaNghi" />
+        <activity android:name=".CnPhu.TimKiem" />
         <activity android:name=".HomePage.Fragment4" />
         <activity android:name=".CnPhu.FullTongQuan" />
         <activity android:name=".HomePage.HienBanDo" />

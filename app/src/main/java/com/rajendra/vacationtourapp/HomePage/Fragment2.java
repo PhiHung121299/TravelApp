@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import com.rajendra.vacationtourapp.ChitietNhaNghi;
+import com.rajendra.vacationtourapp.DetailsActivity;
 import com.rajendra.vacationtourapp.adapter.AllNhaNghiAdapter;
 import com.rajendra.vacationtourapp.model.NhaNghi;
 import com.rajendra.vacationtourapp.R;
@@ -61,10 +63,9 @@ public class Fragment2 extends Fragment {
         gv_nhanghi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getActivity(), DetailsActivity.class);
-//                // intent.putExtra("id", listsp.get(i).getMaSP());
-//                //  intent.putExtra("dsdd", listdd.get(i));
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), ChitietNhaNghi.class);
+                intent.putExtra("dsnn", listdd.get(i));
+                startActivity(intent);
                 Toast.makeText(getActivity(), "" + listdd.get(i).getTen(), Toast.LENGTH_SHORT).show();
             }
         });
