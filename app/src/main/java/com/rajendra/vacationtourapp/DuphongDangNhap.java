@@ -24,7 +24,7 @@ import com.rajendra.vacationtourapp.model.Nguoidung;
 
 import java.util.ArrayList;
 
-public class DangNhap extends AppCompatActivity {
+public class DuphongDangNhap extends AppCompatActivity {
     Button buttonSingIn;
     private EditText username,
             password;
@@ -54,37 +54,37 @@ public class DangNhap extends AppCompatActivity {
 
                         if (dataSnapshot.child(input1).exists()) {
                             if (dataSnapshot.child(input1).child("matKhau").getValue(String.class).equals(input2)) {
-                                Intent intent = new Intent(DangNhap.this, Fragment4.class);
+                                Intent intent = new Intent(DuphongDangNhap.this, Fragment4.class);
                                 intent.putExtra("id", input1);
                                 startActivity(intent);
-                                Toast.makeText(DangNhap.this, input1 + "", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DuphongDangNhap.this, input1 + "", Toast.LENGTH_SHORT).show();
 
                                 if (active.isChecked()) {
                                     if (dataSnapshot.child(input1).child("loai").getValue(String.class).equals("admin")) {
-                                        preferences.setDataLogin(DangNhap.this, true);
-                                        preferences.setDataAs(DangNhap.this, "admin");
-                                        startActivity(new Intent(DangNhap.this, AdminPage.class));
+                                        preferences.setDataLogin(DuphongDangNhap.this, true);
+                                        preferences.setDataAs(DuphongDangNhap.this, "admin");
+                                        startActivity(new Intent(DuphongDangNhap.this, AdminPage.class));
                                     } else if (dataSnapshot.child(input1).child("loai").getValue(String.class).equals("user")) {
-                                        preferences.setDataLogin(DangNhap.this, true);
-                                        preferences.setDataAs(DangNhap.this, "user");
-                                        startActivity(new Intent(DangNhap.this, HomePage.class));
+                                        preferences.setDataLogin(DuphongDangNhap.this, true);
+                                        preferences.setDataAs(DuphongDangNhap.this, "user");
+                                        startActivity(new Intent(DuphongDangNhap.this, HomePage.class));
                                     }
                                 } else {
                                     if (dataSnapshot.child(input1).child("loai").getValue(String.class).equals("admin")) {
-                                        preferences.setDataLogin(DangNhap.this, false);
-                                        startActivity(new Intent(DangNhap.this, AdminPage.class));
+                                        preferences.setDataLogin(DuphongDangNhap.this, false);
+                                        startActivity(new Intent(DuphongDangNhap.this, AdminPage.class));
 
                                     } else if (dataSnapshot.child(input1).child("loai").getValue(String.class).equals("user")) {
-                                        preferences.setDataLogin(DangNhap.this, false);
-                                        startActivity(new Intent(DangNhap.this, HomePage.class));
+                                        preferences.setDataLogin(DuphongDangNhap.this, false);
+                                        startActivity(new Intent(DuphongDangNhap.this, HomePage.class));
                                     }
                                 }
 
                             } else {
-                                Toast.makeText(DangNhap.this, "Mời nhập lại !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DuphongDangNhap.this, "Mời nhập lại !", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(DangNhap.this, "Data belum terdaftar", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DuphongDangNhap.this, "Data belum terdaftar", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -101,7 +101,7 @@ public class DangNhap extends AppCompatActivity {
         buttonSingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DangNhap.this, HomePage.class);
+                Intent intent = new Intent(DuphongDangNhap.this, HomePage.class);
                 startActivity(intent);
             }
         });
@@ -122,10 +122,10 @@ public class DangNhap extends AppCompatActivity {
                 for (DataSnapshot dataS : snapshot.getChildren()) {
 //                    Nguoidung top = dataS.getValue(Nguoidung.class);
 //                    dsData.add(top);
-                    Intent intent = new Intent(DangNhap.this, Fragment4.class);
+                    Intent intent = new Intent(DuphongDangNhap.this, Fragment4.class);
                     intent.putExtra("thongtin", dataS.getValue(Nguoidung.class));
                     startActivity(intent);
-                    Toast.makeText(DangNhap.this, "" + dataS.getValue(Nguoidung.class).getTenTaiKhoan(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DuphongDangNhap.this, "" + dataS.getValue(Nguoidung.class).getTenTaiKhoan(), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -133,7 +133,7 @@ public class DangNhap extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(DangNhap.this, "opss....................", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DuphongDangNhap.this, "opss....................", Toast.LENGTH_SHORT).show();
             }
         });
     }

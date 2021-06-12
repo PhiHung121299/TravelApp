@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Login_Registration.ProfileActivity"></activity>
+        <activity android:name=".Login_Registration.LoginActivity" />
+        <activity android:name=".Login_Registration.SignUpActivity" />
         <activity android:name=".AdminPage" />
         <activity android:name=".ChitietNhaNghi" />
         <activity android:name=".CnPhu.TimKiem" />
@@ -34,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DangNhap"
+            android:name=".DuphongDangNhap"
             android:theme="@style/FullScreen" />
         <activity android:name=".DetailsActivity" />
         <activity android:name=".MainActivity" />

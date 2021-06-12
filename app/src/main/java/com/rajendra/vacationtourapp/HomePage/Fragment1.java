@@ -26,7 +26,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.rajendra.vacationtourapp.CnPhu.TimKiem;
-import com.rajendra.vacationtourapp.DangNhap;
+import com.rajendra.vacationtourapp.Login_Registration.LoginActivity;
 import com.rajendra.vacationtourapp.R;
 import com.rajendra.vacationtourapp.adapter.RecentsAdapter;
 import com.rajendra.vacationtourapp.adapter.TopDiaDiemAdapter;
@@ -90,7 +90,7 @@ public class Fragment1 extends Fragment {
         imageViewDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), DangNhap.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
         });
