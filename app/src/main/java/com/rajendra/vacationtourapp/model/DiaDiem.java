@@ -13,7 +13,16 @@ public class DiaDiem implements Serializable {
 //    }
     public String title, location, imageUrl;
     public Float starRating;
-    public String tongQuan;
+    public String tongQuan,id;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 
     public String getVitri() {
         return vitri;
@@ -32,13 +41,14 @@ public class DiaDiem implements Serializable {
         this.tongQuan = tongQuan;
     }
 
-    public DiaDiem(String title, String location, String imageUrl, Float starRating, String tongQuan, String vitri) {
+    public DiaDiem(String title, String location, String imageUrl, Float starRating, String tongQuan, String vitri,String id) {
         this.title = title;
         this.location = location;
         this.imageUrl = imageUrl;
         this.starRating = starRating;
         this.tongQuan = tongQuan;
         this.vitri=vitri;
+        this.id=id;
     }
 
 

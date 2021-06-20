@@ -6,12 +6,14 @@ public class UserOject implements Serializable {
     public UserOject() {
     }
 
-    public UserOject(String hoTen, String loai, String ngaySinh, String anhDaiDien,String gMail) {
+    public UserOject(String hoTen, String loai, String ngaySinh, String anhDaiDien, String gMail, String sDt, String diaChi) {
         this.hoTen = hoTen;
         this.loai = loai;
         this.ngaySinh = ngaySinh;
         this.anhDaiDien = anhDaiDien;
         this.gMail = gMail;
+        this.sDt = sDt;
+        this.diaChi = diaChi;
     }
 
     public String getHoTen() {
@@ -54,5 +56,28 @@ public class UserOject implements Serializable {
         this.gMail = gMail;
     }
 
-    String hoTen, loai, ngaySinh,anhDaiDien,gMail;
+
+    public String getsDt() {
+        return sDt;
+    }
+
+    public void setsDt(String sDt) {
+        this.sDt = sDt;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    String hoTen;
+    String loai;
+    String ngaySinh;
+    String anhDaiDien;
+    String gMail;
+    String sDt;
+    String diaChi;
 }

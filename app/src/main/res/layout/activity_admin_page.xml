@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPage">
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".Admin">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/tool_admin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="40dp"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:title="Quản lý">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_qldd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_color"
+            android:onClick="qldd_onclick"
+            android:text="Quản lý địa điểm"
+            android:textAllCaps="false"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/bt_qlnn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_color"
+            android:onClick="qlnn_onclick"
+            android:text="Quản lý nhà nghỉ"
+            android:textAllCaps="false"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/bt_qltk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_color"
+            android:onClick="qltk_onclick"
+            android:text="Quản lý tài khoản"
+            android:textAllCaps="false"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/bt_thongke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_color"
+            android:onClick="admin_thongke_onclick"
+            android:text="Thống kê"
+            android:textAllCaps="false"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/bt_dangxuatadmin"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="3dp"
+            android:background="#FFFFFF"
+            android:text="Quay lại trang chủ"
+            android:textStyle="italic"></Button>
+    </LinearLayout>
+
+</LinearLayout>

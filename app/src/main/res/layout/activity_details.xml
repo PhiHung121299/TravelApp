@@ -126,36 +126,37 @@
                 app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
             <ImageView
-                android:id="@+id/img_url"
+                android:id="@+id/img_url1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+
                 android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 app:srcCompat="@drawable/img1" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/img_url2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/img_url"
-                app:layout_constraintStart_toEndOf="@+id/img_url"
-                app:layout_constraintTop_toTopOf="@+id/img_url"
+                app:layout_constraintBottom_toBottomOf="@+id/img_url1"
+                app:layout_constraintStart_toEndOf="@+id/img_url1"
+                app:layout_constraintTop_toTopOf="@+id/img_url1"
                 app:srcCompat="@drawable/img2" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/img_url3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-                app:layout_constraintStart_toEndOf="@+id/imageView9"
-                app:layout_constraintTop_toTopOf="@+id/imageView9"
+                app:layout_constraintBottom_toBottomOf="@+id/img_url2"
+                app:layout_constraintStart_toEndOf="@+id/img_url2"
+                app:layout_constraintTop_toTopOf="@+id/img_url2"
                 app:srcCompat="@drawable/img3" />
 
             <ImageView
@@ -203,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="#0C000000"
-                app:layout_constraintTop_toBottomOf="@+id/img_url">
+                app:layout_constraintTop_toBottomOf="@+id/img_url1">
 
                 <TextView
                     android:id="@+id/textView13"
@@ -219,7 +220,6 @@
                     android:id="@+id/tv_tongquan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
@@ -263,6 +263,17 @@
 
                 </View>
             </fragment>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="9"
+                android:background="#5200BCD4"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/button"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

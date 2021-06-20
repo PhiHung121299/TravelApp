@@ -7,4 +7,6 @@
     <color name="colorBackgroundLayer">#4A000000</color>
     <color name="colorTextHint">#BDBDBD</color>
     <color name="mauxanh">#03A9F4</color>
+
+    <color name="Color_red">#F40303</color>
 </resources>

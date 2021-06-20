@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rajendra.vacationtourapp.AdminPage;
+import com.rajendra.vacationtourapp.Admin.AdminPage;
 import com.rajendra.vacationtourapp.HomePage.HomePage;
 import com.rajendra.vacationtourapp.R;
 import com.rajendra.vacationtourapp.preferences;

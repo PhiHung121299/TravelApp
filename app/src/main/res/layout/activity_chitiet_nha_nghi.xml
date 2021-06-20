@@ -51,6 +51,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -68,13 +69,14 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_diachi"
+                android:tint="@color/Color_red"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_sdt"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_diachi"
-                app:srcCompat="@drawable/star" />
+                app:layout_constraintTop_toTopOf="@+id/tv_sdt"
+                app:srcCompat="@drawable/ic_baseline_star_outline_24" />
 
             <TextView
                 android:id="@+id/tv_star"
@@ -85,6 +87,7 @@
                 android:text="4.5"
                 android:textColor="#000000"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView5"
                 app:layout_constraintEnd_toStartOf="@+id/imageView5"
                 app:layout_constraintTop_toTopOf="@+id/imageView5" />
@@ -102,30 +105,30 @@
                 app:layout_constraintStart_toStartOf="@id/carview"
                 app:layout_constraintTop_toBottomOf="@+id/carview" />
 
-            <TextView
-                android:id="@+id/sdt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/roboto_medium"
-                android:text="SĐT:"
-                android:textColor="#044363"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <TextView
                 android:id="@+id/tv_sdt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/roboto"
                 android:text="039206xxx"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/sdt"
-                app:layout_constraintStart_toEndOf="@+id/sdt"
-                app:layout_constraintTop_toTopOf="@+id/sdt" />
+                app:layout_constraintBottom_toBottomOf="@+id/bt_goidien"
+                app:layout_constraintStart_toEndOf="@+id/bt_goidien"
+                app:layout_constraintTop_toTopOf="@+id/bt_goidien" />
+
+            <ImageView
+                android:id="@+id/bt_goidien"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_phone_24"
+                android:tint="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+            </ImageView>
 
             <TextView
                 android:id="@+id/tv_diachi"
@@ -165,33 +168,46 @@
                 app:srcCompat="@drawable/like" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_lienhe"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/book_button_bg"
                 android:fontFamily="@font/rubik"
-                android:text="Bắt đầu chuyến đi"
+                android:text="Liên hệ"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView11"
                 app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
+            <ImageView
+                android:id="@+id/img_map"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_map_24"
+                android:tint="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_goidien">
+
+            </ImageView>
+
             <TextView
                 android:id="@+id/bando"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Bản đồ"
                 android:textColor="@android:color/background_dark"
 
                 android:textSize="18dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sdt" />
+                app:layout_constraintBottom_toBottomOf="@+id/img_map"
+                app:layout_constraintStart_toEndOf="@+id/img_map"
+                app:layout_constraintTop_toTopOf="@+id/img_map" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/carview"
@@ -268,11 +284,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
-        android:backgroundTint="#FFC107"
+        android:backgroundTint="#9CDCE4"
         android:baselineAlignBottom="false"
         android:clickable="true"
-
         android:src="@drawable/ic_star"
+        android:tint="#FFEB3B"
         app:fabSize="normal"
         app:layout_anchor="@id/appbar"
 

@@ -48,15 +48,8 @@ public class TopDiaDiemAdapter extends RecyclerView.Adapter<TopDiaDiemAdapter.To
             public void onClick(View view) {
                 Intent i = new Intent(context, DetailsActivity.class);
                 i.putExtra("dsdd", diaDiemList.get(position));
-//                i.putExtra("thongtinchitiet1", topPlacesDataList.get(position).getTitle());
-//                i.putExtra("thongtinchitiet2", topPlacesDataList.get(position).getLocation());
-//                i.putExtra("thongtinchitiet3", topPlacesDataList.get(position).getImageUrl());
-//                i.putExtra("thongtinchitiet4", topPlacesDataList.get(position).getStarRating().toString());
-//                i.putExtra("tongquan", topPlacesDataList.get(position).getTongQuan());
-//                i.putExtra("vitri", topPlacesDataList.get(position).getVitri());
                 context.startActivity(i);
-                //    Toast.makeText(context, listsp.toString(), Toast.LENGTH_SHORT).show();
-                Log.i(TAG, "------------------------------------------------------------------" + diaDiemList.get(position).getStarRating());
+
             }
         });
 

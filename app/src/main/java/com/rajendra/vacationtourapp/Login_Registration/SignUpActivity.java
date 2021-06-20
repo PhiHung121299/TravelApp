@@ -117,7 +117,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
-        UserOject user = new UserOject(hoten, loai, ngaysinh, "https://firebasestorage.googleapis.com/v0/b/travelapp-3003b.appspot.com/o/admin.jpg?alt=media&token=9af07db1-77f1-4117-8971-a274fb48da8a",email);
+        UserOject user = new UserOject(hoten, loai, ngaysinh, "https://firebasestorage.googleapis.com/v0/b/travelapp-3003b.appspot.com/o/admin.jpg?alt=media&token=9af07db1-77f1-4117-8971-a274fb48da8a", email, "", "");
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

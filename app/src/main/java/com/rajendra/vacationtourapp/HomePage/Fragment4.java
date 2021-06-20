@@ -1,6 +1,7 @@
 package com.rajendra.vacationtourapp.HomePage;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rajendra.vacationtourapp.Admin.AdminPage;
 import com.rajendra.vacationtourapp.DuphongDangNhap;
 import com.rajendra.vacationtourapp.Login_Registration.LoginActivity;
 import com.rajendra.vacationtourapp.R;
@@ -33,15 +36,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment4 extends Fragment {
-
+    //CardView bt_suaaanh;
     FirebaseAuth mAuth;
     DatabaseReference myData;
     TextView tv_diachi, tv_sdt, tv_hoten, tv_mail, tv_ngaysinh, tv_tentaikhoan;
     String trangthai = "false";
+    String checkloaitk;
     Button dangnhap, dangxuat, trangquanly;
     public static List<Nguoidung> thongtin = new ArrayList<>();
     private static SharedPreferences luutaikhoan;
-    ImageView img_url;
+    ImageView img_url, bt_suaanh;
     String id;
     ArrayList<UserOject> dsData;
 
@@ -54,8 +58,8 @@ public class Fragment4 extends Fragment {
         tv_mail = (TextView) view.findViewById(R.id.tv_gmail);
         tv_hoten = (TextView) view.findViewById(R.id.tv_hotennguoidung);
         tv_ngaysinh = (TextView) view.findViewById(R.id.tv_ngaysinh);
-        tv_tentaikhoan = (TextView) view.findViewById(R.id.tv_tendangnhap);
         dangnhap = (Button) view.findViewById(R.id.bt_dangnhap);
+        bt_suaanh = (ImageView) view.findViewById(R.id.bt_suaanh);
         trangquanly = (Button) view.findViewById(R.id.dentrangquanly);
         dangxuat = (Button) view.findViewById(R.id.bt_dangxuat);
         img_url = (ImageView) view.findViewById(R.id.image_avata);
@@ -65,7 +69,7 @@ public class Fragment4 extends Fragment {
         dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), DuphongDangNhap.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
 
             }
@@ -78,9 +82,15 @@ public class Fragment4 extends Fragment {
                 logout();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
+                dsData.clear();
             }
         });
-
+        bt_suaanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Ok", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 
@@ -107,9 +117,12 @@ public class Fragment4 extends Fragment {
                     }
                     tv_hoten.setText(String.valueOf(dsData.get(0).getHoTen()));
                     tv_ngaysinh.setText(String.valueOf(dsData.get(0).getNgaySinh()));
+                    tv_diachi.setText(String.valueOf(dsData.get(0).getDiaChi()));
+                    tv_sdt.setText(String.valueOf(dsData.get(0).getsDt()));
+                    checkloaitk = String.valueOf(dsData.get(0).getLoai());
                     Picasso.get().load(dsData.get(0).getAnhDaiDien()).into(img_url);
                     Log.i("data", String.valueOf(dataSnapshot.getValue()));
-
+                    checkloaitk();
                 }
 
                 @Override
@@ -130,7 +143,9 @@ public class Fragment4 extends Fragment {
 //                        .into(img_url);
 
             }
+            //
 
+            //
             if (user.getUid() != null) {
                 tv_mail.setText(user.getEmail());
 
@@ -152,6 +167,21 @@ public class Fragment4 extends Fragment {
 //                    }
 //                });
             }
+        }
+    }
+
+    private void checkloaitk() {
+        if (checkloaitk.equals("admin")) {
+            trangquanly.setVisibility(View.VISIBLE);
+            trangquanly.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), AdminPage.class);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            trangquanly.setVisibility(View.INVISIBLE);
         }
     }
 

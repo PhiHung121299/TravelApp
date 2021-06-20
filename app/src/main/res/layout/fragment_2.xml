@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="center"
-            android:text="Toàn bộ địa điểm"
+            android:text="Homestay"
             android:textColor="#000000"
             android:textSize="24dp"
             android:textStyle="bold" />
