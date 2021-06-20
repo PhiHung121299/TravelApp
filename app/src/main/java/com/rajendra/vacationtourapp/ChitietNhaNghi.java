@@ -61,6 +61,7 @@ public class ChitietNhaNghi extends AppCompatActivity implements OnMapReadyCallb
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
+
         bt_lienhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
