@@ -33,7 +33,7 @@ public class Fragment3 extends Fragment {
     private static final String TAG = "ok";
     AllDiaDiemAdapter adapter;
     DatabaseReference myData;
-
+    String nodekey;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,8 +47,10 @@ public class Fragment3 extends Fragment {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     DiaDiem top = dataSnapshot.getValue(DiaDiem.class);
+
                     listdd.add(top);
                 }
+
                 adapter = new AllDiaDiemAdapter(getContext(), R.layout.item_container_location, listdd);
                 gv_diadiem.setAdapter(adapter);
                 // setTopRecycler(dsLocationAnUong);

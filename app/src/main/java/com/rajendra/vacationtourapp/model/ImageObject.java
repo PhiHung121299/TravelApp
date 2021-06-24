@@ -3,22 +3,29 @@ package com.rajendra.vacationtourapp.model;
 import java.io.Serializable;
 
 public class ImageObject implements Serializable {
-   public String url;
-  public ImageObject() {
-   }
+    private String image1, image2;
 
-    public ImageObject(String img) {
-        this.url = img;
+    public ImageObject() {
+    }
+    public ImageObject(String image1, String image2) {
+        this.image1 = image1;
+        this.image2 = image2;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImage1() {
+        return image1;
     }
 
-    public void setUrl(String img) {
-        this.url = url;
+    public void setImage1(String image1) {
+        this.image1 = image1;
     }
 
+    public String getImage2() {
+        return image2;
+    }
 
-
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
 }
+

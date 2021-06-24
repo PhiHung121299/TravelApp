@@ -60,6 +60,12 @@
             android:textSize="20dp" />
     </LinearLayout>
 
+    <Spinner
+        android:id="@+id/spnCategory"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/result_list"
         android:layout_width="match_parent"

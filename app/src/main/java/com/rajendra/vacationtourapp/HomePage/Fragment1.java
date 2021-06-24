@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,6 +117,7 @@ public class Fragment1 extends Fragment {
                     DiaDiem top = dataSnapshot.getValue(DiaDiem.class);
                     dsData.add(top);
                 }
+
                 topDiaDiemAdapter = new TopDiaDiemAdapter(getActivity(), dsData);
                 topPlacesRecycler.setAdapter(topDiaDiemAdapter);
             }

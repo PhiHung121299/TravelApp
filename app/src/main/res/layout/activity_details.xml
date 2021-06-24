@@ -125,39 +125,33 @@
                 app:layout_constraintStart_toStartOf="@+id/mapView"
                 app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
-            <ImageView
-                android:id="@+id/img_url1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+            <LinearLayout
+                android:id="@+id/linear_UpAnh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_star_rating"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="2dp"
+                android:layout_marginLeft="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toTopOf="@+id/textView12"
+                tools:ignore="MissingConstraints">
 
-                android:scaleType="fitXY"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:srcCompat="@drawable/img1" />
+                <ImageView
+                    android:id="@+id/bt_taianhlen"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_camera"
+                    android:tint="#FFFFFF"
 
-            <ImageView
-                android:id="@+id/img_url2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/img_url1"
-                app:layout_constraintStart_toEndOf="@+id/img_url1"
-                app:layout_constraintTop_toTopOf="@+id/img_url1"
-                app:srcCompat="@drawable/img2" />
-
-            <ImageView
-                android:id="@+id/img_url3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/img_url2"
-                app:layout_constraintStart_toEndOf="@+id/img_url2"
-                app:layout_constraintTop_toTopOf="@+id/img_url2"
-                app:srcCompat="@drawable/img3" />
+                    />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -204,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="#0C000000"
-                app:layout_constraintTop_toBottomOf="@+id/img_url1">
+                app:layout_constraintTop_toBottomOf="@+id/slider">
 
                 <TextView
                     android:id="@+id/textView13"
@@ -220,14 +214,14 @@
                     android:id="@+id/tv_tongquan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="5"
                     android:text="Vườn Mughal đã thực sự thay đổi bộ mặt của Đế chế Mughal, là một trong những điểm thu hút khách du lịch nổi tiếng nhất và được ghé thăm nhiều nhất ở Srinagar. "
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/textView13"
                     app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -264,16 +258,19 @@
                 </View>
             </fragment>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview"
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/slider"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="9"
-                android:background="#5200BCD4"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                android:layout_height="250dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                app:corner_radius="5"
+                app:delay="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:period="1500"
+                tools:ignore="MissingClass" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

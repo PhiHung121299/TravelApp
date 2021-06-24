@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.Activity_Sua_tt_NhaNghi"></activity>
+        <activity android:name=".CnPhu.UpLoadAnh"></activity>
+        <activity android:name=".Admin.Activity_Sua_tt_NhaNghi" />
         <activity android:name=".Admin.Activity_QuanLyTaiKhoan" />
         <activity android:name=".Admin.Activity_QuanLyNhaNghi" />
         <activity android:name=".Admin.Activity_QuanlyDiaDiem" />
