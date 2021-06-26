@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -23,61 +25,88 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.rajendra.vacationtourapp.Admin.admin_adapter.adapter_ql_nhanghi;
+import com.rajendra.vacationtourapp.HomePage.HomePage;
 import com.rajendra.vacationtourapp.R;
+import com.rajendra.vacationtourapp.model.HinhAnh;
 import com.rajendra.vacationtourapp.model.NhaNghi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
     EditText edt_Ten, edt_sdt, edt_diachi, edt_Tongquan, edt_vitri, edt_linkanh;
     Button bt_luu;
     Toolbar toolbar;
-    String Ma;
+    int Ma;
+    String keyNhaNghi = "";
+    String ten, diaChi, diemDanhGia, hinhAnh, sdt, tongQuan, vitriMap;
     private static final String TAG = "ok";
-    DatabaseReference myData;
+    DatabaseReference ref, root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__sua_tt__nha_nghi);
+        ref = FirebaseDatabase.getInstance().getReference();
         toolbar = (Toolbar) findViewById(R.id.toolbar_sua);
         toolbar.setTitle("Sửa thông tin");
         setSupportActionBar(toolbar);
         anhxa();
         getdata();
-        myData = FirebaseDatabase.getInstance().getReference().child("NhaNghi");
+        Log.i("Keyyyyyyyyyyyyyyyyyyy", "----------------------------" + Ma);
+        ref.child("NhaNghi").orderByChild("iDDiaDiem").equalTo(Ma).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot != null) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        keyNhaNghi = data.getKey();
+
+
+                        //  Log.i("data", "------------===========>>>>>>" + keyNhaNghi + "-----------------------" + ten + sdt + hinhAnh + ">>.>>>>>>>");
+                        //    root = FirebaseDatabase.getInstance().getReference().child("NhaNghi").child(""+nodekey);
+//                                root.updateChildren(result).addOnSuccessListener(new OnSuccessListener() {
+//                                    @Override
+//                                    public void onSuccess(Object o) {
+//                                        Toast.makeText(Activity_Sua_tt_NhaNghi.this, "Your Data is Successfully Update", Toast.LENGTH_LONG).show();
+//                                    }
+//                                });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
         bt_luu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NhaNghi nn = new NhaNghi();
-                HashMap<String, Object> result = new HashMap<>();
-                result.put("diaChi", edt_diachi.getText());
-                result.put("hinhAnh", edt_linkanh.getText());
-                result.put("ten", edt_Ten.getText());
-                result.put("sdt", edt_sdt.getText());
-                result.put("tongQuan", edt_Tongquan.getText());
-                result.put("vitriMap", edt_vitri.getText());
-
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                Query query = ref.child("NhaNghi").orderByChild("iDDiaDiem").equalTo(Ma);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                ten = edt_Ten.getText() + "";
+                sdt = edt_sdt.getText() + "";
+                diaChi = edt_diachi.getText() + "";
+                tongQuan = edt_Tongquan.getText() + "";
+                hinhAnh = edt_linkanh.getText() + "";
+                vitriMap = edt_vitri.getText() + "";
+                HashMap result = new HashMap<>();
+                  result.put("diaChi", diaChi);
+                    result.put("hinhAnh", hinhAnh);
+                 result.put("ten", ten);
+                  result.put("sdt", sdt);
+                result.put("tongQuan", tongQuan);
+                //   result.put("vitriMap", vitriMap);
+                root = FirebaseDatabase.getInstance().getReference().child("NhaNghi").child(keyNhaNghi);
+                root.updateChildren(result).addOnSuccessListener(new OnSuccessListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String key = ds.getKey();
-                            myData = FirebaseDatabase.getInstance().getReference().child("NhaNghi").child(key);
-                            myData.updateChildren(result);
-                            finish();
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
+                    public void onSuccess(Object o) {
+                        Toast.makeText(Activity_Sua_tt_NhaNghi.this, "Sửa thành công", Toast.LENGTH_LONG).show();
                     }
                 });
+                Log.i("data", "------------===========>>>>>>" + keyNhaNghi + ">>.>>>>>>>");
+                Intent intent = new Intent(Activity_Sua_tt_NhaNghi.this,Activity_QuanLyNhaNghi.class);
+                startActivity(intent);
             }
         });
     }
@@ -91,7 +120,10 @@ public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
         edt_Tongquan.setText(nn.getTongQuan());
         edt_linkanh.setText(nn.getHinhAnh());
         edt_vitri.setText(nn.getVitriMap());
-        Ma = String.valueOf(nn.getiDDiaDiem());
+        Ma = nn.getiDDiaDiem();
+
+
+
     }
 
     public void anhxa() {
@@ -106,7 +138,8 @@ public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent intent = new Intent(Activity_Sua_tt_NhaNghi.this, Activity_QuanLyNhaNghi.class);
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 

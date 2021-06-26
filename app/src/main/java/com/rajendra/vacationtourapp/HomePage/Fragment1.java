@@ -64,7 +64,7 @@ public class Fragment1 extends Fragment {
         dsData = new ArrayList<DiaDiem>();
         myData = FirebaseDatabase.getInstance().getReference().child("TravelLocation");
         //lấy mảng 4 phần tử có lượt bình chọn lớn hơn hoặc bằng 4.5 diểm đánh giá
-        Query query = myData.limitToFirst(4).orderByChild("starRating").startAt(4.5);
+        Query query = myData.limitToFirst(6).orderByChild("starRating").startAt(4.5);
         getTopDiaDiem(query);
 
 

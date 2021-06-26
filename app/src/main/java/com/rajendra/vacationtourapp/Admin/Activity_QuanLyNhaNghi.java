@@ -174,5 +174,18 @@ public class Activity_QuanLyNhaNghi extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent(Activity_QuanLyNhaNghi.this, AdminPage.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }

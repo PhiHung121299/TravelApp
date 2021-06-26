@@ -65,7 +65,9 @@ public class AdminPage extends AppCompatActivity {
 //
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        Intent intent = new Intent(AdminPage.this, HomePage.class);
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
 
     }
