@@ -9,48 +9,46 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.rajendra.vacationtourapp.HomePage.HomePage;
 import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.UserOject;
 import com.squareup.picasso.Picasso;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
-
     private static final int CHOOSE_IMAGE = 101;
 
     TextView textView;
     ImageView imageView;
-    EditText editText;
-    Toolbar toolbar;
+
+    String photoStringLink;
     Uri uriProfileImage;
     ProgressBar progressBar;
-    String id;
-    String profileImageUrl;
 
+    String profileImageUrl;
+    DatabaseReference root;
     FirebaseAuth mAuth;
 
     @Override
@@ -59,13 +57,12 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         mAuth = FirebaseAuth.getInstance();
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        editText = (EditText) findViewById(R.id.editTextDisplayName);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        textView = (TextView) findViewById(R.id.editTextDisplayName);
+        imageView = (ImageView) findViewById(R.id.imageAnhDaiDien);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        textView = (TextView) findViewById(R.id.textViewVerified);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,90 +76,42 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveUserInformation();
+                final FirebaseUser user = mAuth.getCurrentUser();
+                String key = textView.getText().toString();
+                //saveUserInformation();
+                HashMap result = new HashMap<>();
+                result.put("anhDaiDien", user.getPhotoUrl().toString());
+                root = FirebaseDatabase.getInstance().getReference().child("Users").child(key);
+                root.updateChildren(result).addOnSuccessListener(new OnSuccessListener() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Toast.makeText(ProfileActivity.this, "Sửa thành công", Toast.LENGTH_LONG).show();
+                    }
+                });
+                Log.i("data", "------------===========>>>>>>" + key + ">>.>>>>>>>");
+                Intent intent = new Intent(ProfileActivity.this, HomePage.class);
+                startActivity(intent);
             }
+
+
         });
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mAuth.getCurrentUser() == null) {
-            finish();
-            startActivity(new Intent(this, HomePage.class));
-        }
-    }
-
     private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
-        if(user!=null){
-
-            id = user.getUid();
-            Toast.makeText(ProfileActivity.this, "" +id, Toast.LENGTH_SHORT).show();
-        }
 
         if (user != null) {
             if (user.getPhotoUrl() != null) {
-                Glide.with(this)
-                        .load(user.getPhotoUrl().toString())
-                        .into(imageView);
+//                Glide.with(this)
+//                        .load(user.getPhotoUrl().toString())
+//                        .into(imageView);
+                Picasso.get().load(user.getPhotoUrl()).into(imageView);
+            }
+            if (user.getDisplayName() != null) {
+                textView.setText(user.getUid());
             }
 
-            if (user.getUid() != null) {
-                editText.setText(user.getUid());
-
-            }
-
-
-            if (user.isEmailVerified()) {
-                textView.setText("Email Verified");
-            } else {
-                textView.setText("Email Not Verified (Click to Verify)");
-                textView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(ProfileActivity.this, "Verification Email Sent" , Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-            }
-        }
-    }
-
-
-    private void saveUserInformation() {
-
-
-        String displayName = editText.getText().toString();
-
-        if (displayName.isEmpty()) {
-            editText.setError("Name required");
-            editText.requestFocus();
-            return;
-        }
-
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if (user != null && profileImageUrl != null) {
-            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(displayName)
-                    .setPhotoUri(Uri.parse(profileImageUrl))
-                    .build();
-
-            user.updateProfile(profile)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
         }
     }
 
@@ -195,7 +144,15 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressBar.setVisibility(View.GONE);
-                            profileImageUrl = taskSnapshot.getMetadata().toString();
+                            Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                            result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                   photoStringLink = uri.toString();
+                                    Log.i("urlimage", photoStringLink);
+                                    // Picasso.get().load(photoStringLink).into(imageView);
+                                }
+                            });
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -225,7 +182,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                startActivity(new Intent(this, HomePage.class));
+                startActivity(new Intent(this, LoginActivity.class));
 
                 break;
         }

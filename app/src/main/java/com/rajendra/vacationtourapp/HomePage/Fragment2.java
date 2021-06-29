@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -66,7 +67,7 @@ public class Fragment2 extends Fragment {
                 Intent intent = new Intent(getActivity(), ChitietNhaNghi.class);
                 intent.putExtra("dsnn", listdd.get(i));
                 startActivity(intent);
-                Toast.makeText(getActivity(), "" + listdd.get(i).getTen(), Toast.LENGTH_SHORT).show();
+
             }
         });
 

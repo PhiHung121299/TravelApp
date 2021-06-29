@@ -7,17 +7,19 @@ public class Nguoidung implements Serializable {
     public Nguoidung() {
     }
 
-    String anhDaiDien, hoTen, loai, matKhau, ngaySinh, tenTaiKhoan;
+
+    String anhDaiDien, hoTen, loai, matKhau, ngaySinh, gMail;
 
     //   String tentaikhoan, matkhau, hoten, ngaysinh, diachi, gmail, sdt, loaitk, id;
 
-    public Nguoidung(String anhDaiDien, String hoTen, String loai, String matKhau, String ngaySinh, String tenTaiKhoan) {
+    public Nguoidung(String anhDaiDien, String hoTen, String loai, String matKhau, String ngaySinh, String gMail) {
         this.anhDaiDien = anhDaiDien;
         this.hoTen = hoTen;
         this.loai = loai;
         this.matKhau = matKhau;
         this.ngaySinh = ngaySinh;
-        this.tenTaiKhoan = tenTaiKhoan;
+        this.gMail = gMail;
+
     }
 
     public String getAnhDaiDien() {
@@ -60,12 +62,12 @@ public class Nguoidung implements Serializable {
         this.ngaySinh = ngaySinh;
     }
 
-    public String getTenTaiKhoan() {
-        return tenTaiKhoan;
+    public String getgMail() {
+        return gMail;
     }
 
-    public void setTenTaiKhoan(String tenTaiKhoan) {
-        this.tenTaiKhoan = tenTaiKhoan;
+    public void setgMail(String gMail) {
+        this.gMail = gMail;
     }
 
 

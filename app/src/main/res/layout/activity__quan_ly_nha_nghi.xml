@@ -32,11 +32,6 @@
         android:layout_margin="5dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Tổng số sản phẩm:"
-            android:textColor="#000000"></TextView>
     </LinearLayout>
 
 </LinearLayout>

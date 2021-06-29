@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp.Admin;
+package com.rajendra.vacationtourapp.Admin.Sua;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,30 +10,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.denzcoskun.imageslider.models.SlideModel;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.rajendra.vacationtourapp.Admin.admin_adapter.adapter_ql_nhanghi;
-import com.rajendra.vacationtourapp.HomePage.HomePage;
+import com.rajendra.vacationtourapp.Admin.Activity_QuanLyNhaNghi;
 import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.model.HinhAnh;
 import com.rajendra.vacationtourapp.model.NhaNghi;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
     EditText edt_Ten, edt_sdt, edt_diachi, edt_Tongquan, edt_vitri, edt_linkanh;
@@ -62,16 +51,6 @@ public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
                 if (snapshot != null) {
                     for (DataSnapshot data : snapshot.getChildren()) {
                         keyNhaNghi = data.getKey();
-
-
-                        //  Log.i("data", "------------===========>>>>>>" + keyNhaNghi + "-----------------------" + ten + sdt + hinhAnh + ">>.>>>>>>>");
-                        //    root = FirebaseDatabase.getInstance().getReference().child("NhaNghi").child(""+nodekey);
-//                                root.updateChildren(result).addOnSuccessListener(new OnSuccessListener() {
-//                                    @Override
-//                                    public void onSuccess(Object o) {
-//                                        Toast.makeText(Activity_Sua_tt_NhaNghi.this, "Your Data is Successfully Update", Toast.LENGTH_LONG).show();
-//                                    }
-//                                });
                     }
                 }
             }
@@ -105,14 +84,13 @@ public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
                     }
                 });
                 Log.i("data", "------------===========>>>>>>" + keyNhaNghi + ">>.>>>>>>>");
-                Intent intent = new Intent(Activity_Sua_tt_NhaNghi.this,Activity_QuanLyNhaNghi.class);
+                Intent intent = new Intent(Activity_Sua_tt_NhaNghi.this, Activity_QuanLyNhaNghi.class);
                 startActivity(intent);
             }
         });
     }
 
     private void getdata() {
-
         NhaNghi nn = (NhaNghi) getIntent().getSerializableExtra("updatesp");
         edt_Ten.setText(nn.getTen());
         edt_sdt.setText(nn.getSdt());
@@ -121,9 +99,6 @@ public class Activity_Sua_tt_NhaNghi extends AppCompatActivity {
         edt_linkanh.setText(nn.getHinhAnh());
         edt_vitri.setText(nn.getVitriMap());
         Ma = nn.getiDDiaDiem();
-
-
-
     }
 
     public void anhxa() {

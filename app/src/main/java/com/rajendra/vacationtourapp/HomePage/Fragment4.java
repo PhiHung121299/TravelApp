@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,8 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rajendra.vacationtourapp.Admin.AdminPage;
+import com.rajendra.vacationtourapp.Admin.admin_themtaikhoan;
+import com.rajendra.vacationtourapp.CnPhu.ThayAnhDaiDien;
 import com.rajendra.vacationtourapp.DuphongDangNhap;
 import com.rajendra.vacationtourapp.Login_Registration.LoginActivity;
+import com.rajendra.vacationtourapp.Login_Registration.ProfileActivity;
 import com.rajendra.vacationtourapp.R;
 import com.rajendra.vacationtourapp.UserOject;
 import com.rajendra.vacationtourapp.model.Nguoidung;
@@ -49,6 +53,7 @@ public class Fragment4 extends Fragment {
     ImageView img_url, bt_suaanh;
     String id;
     ArrayList<UserOject> dsData;
+    private static final int CHOOSE_IMAGE = 101;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,6 +95,8 @@ public class Fragment4 extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Ok", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), ProfileActivity.class));
+
             }
         });
         return view;
@@ -232,4 +239,6 @@ public class Fragment4 extends Fragment {
             }
         }
     }
+
+
 }

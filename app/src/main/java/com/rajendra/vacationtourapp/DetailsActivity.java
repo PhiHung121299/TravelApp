@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -73,20 +73,14 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
         anhxa();
-
         dsData = new ArrayList<ImageObject>();
         images = new ImageObject();
         mAuth = FirebaseAuth.getInstance();
         checkAccount();
         setSupportActionBar(tb_title);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //Dulieu();
-        //  LoadListAnh();
         DulieuChitiet();
-
         LoadListAnh();
         XemTongQuan();
         bt_taianhlen.setOnClickListener(new View.OnClickListener() {
@@ -120,12 +114,10 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
             }
         });
     }
-
     private void LoadListAnh() {
         List<String> list = new ArrayList<>();
         final FirebaseUser user = mAuth.getCurrentUser();
         myData = FirebaseDatabase.getInstance().getReference().child("TravelLocation");
-
         dsHinhAnh = new ArrayList<HinhAnh>();
         myData.orderByChild("id").equalTo(id).addValueEventListener(new ValueEventListener() {
             @Override
@@ -134,13 +126,10 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
                 if (snapshot != null) {
                     for (DataSnapshot data : snapshot.getChildren()) {
                         nodekey = data.getKey();
-
                         //
                         Log.i("data", "------------===========>>>>>>" + nodekey + ">>.>>>>>>>");
                         int count = (int) data.child("img").getChildrenCount();
-
                         mhinhanh = FirebaseDatabase.getInstance().getReference().child("TravelLocation").child("" + nodekey).child("img");
-
                         mhinhanh.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -150,8 +139,6 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
                                     dsHinhAnh.add(ha);
                                 }
                                 if (dsHinhAnh != null) {
-                                    // Log.i("Hinh anh", "----------------------------" + dsHinhAnh.get(0).getUrl());
-
                                     List<SlideModel> slideModels = new ArrayList<>();
                                     for (int i = 0; i < count; i++) {
                                         if (i <= count - 1) {
@@ -163,49 +150,22 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
                                     Log.i("Danh sách rỗng", "----------------------------" + dsHinhAnh.size());
                                 }
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
-
-
-//                        for (int i = 1; i <= count; i++) {
-//                            if (i <= count) {
-//                                //FirebaseAuth.getInstance().getCurrentUser().getUid()
-//                                list.add(String.valueOf(data.child("img").child("" + i).child("url").getValue()));
-//                                //  list.add(data.child("img").getValue(HinhAnh.class));
-//                                //    String[] output = list.get(0).split('={url=');
-//                                //   list.add(String.valueOf(data.child("img").child(FirebaseDatabase.getInstance().getReference().child("img").getKey()).child("url").getValue()));
-//                            }
-//                        }
                         Log.i("data", "----------------------------" + dsHinhAnh.toString() + count);
-
-
-//                        slideModels.add(new SlideModel(list.get(1)));
-//                        slideModels.add(new SlideModel(list.get(2)));
-
-                        //    Log.e("DEBUG", "--------------------------" + diaDiem.getImg().getImage2());
-//
-//                        Picasso.get().load(list.get(0)).into(img_url1);
-//                        Picasso.get().load(list.get(1)).into(img_url2);
-//                        Picasso.get().load(list.get(2)).into(img_url3);
                     }
-
                 } else {
                     Log.i("data", "----------------------------" + list.toString());
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
-
     private void DulieuChitiet() {
         DiaDiem ds = (DiaDiem) getIntent().getSerializableExtra("dsdd");
         tv_ten.setText(ds.getTitle());
@@ -215,9 +175,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         tb_title.setTitle(ds.title);
         vitri = ds.getVitri() + "";
         id = ds.getId() + "";
-        //    Picasso.get().load(ds.getImageUrl()).into(img_url3);
         Picasso.get().load(ds.getImageUrl()).into(image_nen);
-        Toast.makeText(DetailsActivity.this, ds.getVitri() + "", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -227,27 +185,15 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         tv_diachi = (TextView) findViewById(R.id.tv_diachi);
         tv_star = (TextView) findViewById(R.id.tv_star);
         tv_tongquan = (TextView) findViewById(R.id.tv_tongquan);
-//        img_url1 = (ImageView) findViewById(R.id.img_url1);
-//        img_url2 = (ImageView) findViewById(R.id.img_url2);
-//        img_url3 = (ImageView) findViewById(R.id.img_url3);
         bt_taianhlen = (ImageView) findViewById(R.id.bt_taianhlen);
         linearLayout_upAnh = (LinearLayout) findViewById(R.id.linear_UpAnh);
         image_nen = (ImageView) findViewById(R.id.image_nen);
         tb_title = (Toolbar) findViewById(R.id.toolbar);
-        //lv_anh = (RecyclerView) findViewById(R.id.recyclerview);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
         mapFragment.getMapAsync(this);
-
-
         imageSlider = findViewById(R.id.slider);
         Intent intent = getIntent();
-        diaDiem = (DiaDiem) intent.getSerializableExtra("dsdd");
-        //   List<SlideModel> slideModels = new ArrayList<>();
-        //    slideModels.add(new SlideModel(diaDiem.getImg().getImage1()));
-        // slideModels.add(new SlideModel(diaDiem.getImg().getImage2()));
-        //  imageSlider.setImageList(slideModels, true);
-        //   Log.e("DEBUG", "--------------------------" + diaDiem.getImg().getImage2());
-
 
     }
 
@@ -287,14 +233,12 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         Intent i = new Intent(DetailsActivity.this, HienBanDo.class);
         i.putExtra("dsdd", vitri);
     }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
 
     }
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

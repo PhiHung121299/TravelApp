@@ -126,7 +126,7 @@ public class DuphongDangNhap extends AppCompatActivity {
                     Intent intent = new Intent(DuphongDangNhap.this, Fragment4.class);
                     intent.putExtra("thongtin", dataS.getValue(Nguoidung.class));
                     startActivity(intent);
-                    Toast.makeText(DuphongDangNhap.this, "" + dataS.getValue(Nguoidung.class).getTenTaiKhoan(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DuphongDangNhap.this, "" + dataS.getValue(Nguoidung.class).getgMail(), Toast.LENGTH_SHORT).show();
 
                 }
 

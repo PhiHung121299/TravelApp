@@ -31,6 +31,7 @@ public class AdminPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        bt_thongke.setVisibility(View.GONE);
     }
 
     private void Anhxa() {

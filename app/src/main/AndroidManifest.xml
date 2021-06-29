@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.rajendra.vacationtourapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CnPhu.UpLoadAnh"></activity>
-        <activity android:name=".Admin.Activity_Sua_tt_NhaNghi" />
+        <activity android:name=".Admin.Sua.Activity_Sua_tt_User"></activity>
+        <activity android:name=".CnPhu.ThayAnhDaiDien" />
+        <activity android:name=".CnPhu.UpLoadAnh" />
+        <activity android:name=".Admin.Sua.Activity_Sua_tt_NhaNghi" />
         <activity android:name=".Admin.Activity_QuanLyTaiKhoan" />
         <activity android:name=".Admin.Activity_QuanLyNhaNghi" />
         <activity android:name=".Admin.Activity_QuanlyDiaDiem" />
@@ -26,9 +29,12 @@
         <activity android:name=".Admin.AdminPage" />
         <activity android:name=".ChitietNhaNghi" />
         <activity android:name=".CnPhu.TimKiem" />
-        <activity android:name=".HomePage.Fragment4" />
+        <activity
+            android:name=".HomePage.Fragment4"
+            tools:ignore="Instantiatable" />
         <activity android:name=".CnPhu.FullTongQuan" />
         <activity android:name=".HomePage.HienBanDo" />
+        <activity android:name=".Admin.admin_themtaikhoan" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

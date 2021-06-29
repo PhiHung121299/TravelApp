@@ -18,20 +18,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.rajendra.vacationtourapp.Admin.Sua.Activity_Sua_tt_NhaNghi;
 import com.rajendra.vacationtourapp.Admin.admin_adapter.adapter_ql_nhanghi;
 import com.rajendra.vacationtourapp.ChitietNhaNghi;
-import com.rajendra.vacationtourapp.DetailsActivity;
-import com.rajendra.vacationtourapp.HomePage.HomePage;
 import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.adapter.AllNhaNghiAdapter;
 import com.rajendra.vacationtourapp.model.NhaNghi;
 
 import java.util.ArrayList;
@@ -60,15 +56,13 @@ public class Activity_QuanLyNhaNghi extends AppCompatActivity {
         myData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     NhaNghi top = dataSnapshot.getValue(NhaNghi.class);
                     String clubkey = dataSnapshot.getKey();
-                    //Toast.makeText(Activity_QuanLyNhaNghi.this, "opss...................." + clubkey, Toast.LENGTH_SHORT).show();
+
                     listNhaNghi.add(top);
                 }
                 adapter = new adapter_ql_nhanghi(Activity_QuanLyNhaNghi.this, R.layout.item_lv_qlnhanghi_admin, listNhaNghi);
-                // Toast.makeText(Activity_QuanLyNhaNghi.this, "opss...................." + listNhaNghi.get(0), Toast.LENGTH_SHORT).show();
                 lv_ds.setAdapter(adapter);
             }
 
@@ -164,10 +158,9 @@ public class Activity_QuanLyNhaNghi extends AppCompatActivity {
                 case 1:
 
                     Intent intent = new Intent(Activity_QuanLyNhaNghi.this, Activity_Sua_tt_NhaNghi.class);
-                    // intent.putExtra("id", listsp.get(i).getMaSP());
+
                     intent.putExtra("updatesp", listNhaNghi.get(ps));
                     startActivity(intent);
-                    //    intentMenu = new Intent(activity_loaibk.this, activity_loaibk_update.class);
                     break;
             }
 
@@ -188,4 +181,5 @@ public class Activity_QuanLyNhaNghi extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }
+
 }

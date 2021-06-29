@@ -79,13 +79,12 @@ public class Fragment1 extends Fragment {
 
             }
         });
-
         TextAllnoibat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  chipNavigationBar.setItemSelected(R.id.menuFavorite, true);
+
                 getParentFragmentManager().beginTransaction().replace(R.id.container, new Fragment3()).addToBackStack(null).commit();
-                //   HomePage.setFragmen();
+
             }
         });
         imageViewDangNhap.setOnClickListener(new View.OnClickListener() {
@@ -128,12 +127,4 @@ public class Fragment1 extends Fragment {
             }
         });
     }
-
-//    private void setRecentRecycler(List<RecentsData> recentsDataList) {
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
-//        recentRecycler.setLayoutManager(layoutManager);
-//        recentsAdapter = new RecentsAdapter(getActivity(), recentsDataList);
-//        recentRecycler.setAdapter(recentsAdapter);
-//    }
-
 }

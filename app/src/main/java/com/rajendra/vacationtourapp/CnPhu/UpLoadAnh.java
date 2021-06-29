@@ -21,7 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.rajendra.vacationtourapp.Admin.Activity_QuanLyTaiKhoan;
 import com.rajendra.vacationtourapp.Admin.Activity_QuanlyDiaDiem;
+import com.rajendra.vacationtourapp.Admin.AdminPage;
 import com.rajendra.vacationtourapp.DetailsActivity;
 import com.rajendra.vacationtourapp.R;
 
@@ -96,7 +98,6 @@ public class UpLoadAnh extends AppCompatActivity {
 
     private void StoreLink(String url) {
         Bundle extras = this.getIntent().getExtras();
-
         nodekey = extras.getString("nodekey");
         Log.i("data", "------------===========>>>>>>" + nodekey + ">>.>>>>>>>");
         HashMap<String, String> hashMap = new HashMap<>();
@@ -107,7 +108,6 @@ public class UpLoadAnh extends AppCompatActivity {
         alert.setText("Image Uploaded Successfully");
         upload.setVisibility(View.GONE);
         Intent intent = new Intent(UpLoadAnh.this, Activity_QuanlyDiaDiem.class);
-
         startActivity(intent);
     }
 
@@ -135,7 +135,8 @@ public class UpLoadAnh extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent intent = new Intent(UpLoadAnh.this, Activity_QuanlyDiaDiem.class);
+        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 
